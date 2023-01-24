@@ -55,12 +55,6 @@ export default async (req, res) => {
       parseArray(exclude_repo),
     );
 
-    const cacheSeconds = clampValue(
-      parseInt(cache_seconds || CONSTANTS.FOUR_HOURS, 10),
-      CONSTANTS.FOUR_HOURS,
-      CONSTANTS.ONE_DAY,
-    );
-
     res.setHeader(
       "Cache-Control",
       `max-age=${
