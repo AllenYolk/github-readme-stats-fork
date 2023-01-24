@@ -54,6 +54,8 @@ export default async (req, res) => {
       parseBoolean(include_all_commits),
       parseArray(exclude_repo),
     );
+    
+    const cacheSeconds = parseInt(cache_seconds || CONSTANTS.FOUR_HOURS, 10);
 
     res.setHeader(
       "Cache-Control",
